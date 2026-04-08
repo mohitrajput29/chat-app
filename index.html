@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Chat</title>
+    <meta name="description" content="A beautiful real-time chat application with glassmorphism aesthetic.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+
+    <!-- Username Modal overlay -->
+    <div id="username-modal" class="modal-overlay">
+        <div class="modal-content glass-effect">
+            <h2>Welcome to Aurora</h2>
+            <p>Enter your display name to start chatting.</p>
+            <input type="text" id="username-input" placeholder="Your name..." autofocus>
+            <button id="join-btn">Join Chat</button>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container glass-effect">
+        
+        <!-- Sidebar / Header area inside the glass container -->
+        <header class="app-header">
+            <div class="brand">
+                <i class="fa-solid fa-moon brand-icon"></i>
+                <h1 class="brand-title">Aurora Chat</h1>
+            </div>
+            <div class="status-indicator" id="status-chip">
+                <span class="pulse-dot"></span>
+                <span id="user-count">0 Online</span>
+            </div>
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                <i class="fa-regular fa-sun"></i>
+            </button>
+        </header>
+
+        <!-- Chat Area -->
+        <main class="chat-main" id="chat-box">
+            <div class="messages-container" id="messages">
+                <div class="message system">Welcome to Aurora Chat. Say hi!</div>
+            </div>
+            
+            <div class="typing-indicator-container">
+                <div id="typing-indicator" class="typing-text hidden">Someone is typing...</div>
+            </div>
+        </main>
+
+        <!-- Input Area -->
+        <footer class="chat-footer">
+            <form id="chat-form">
+                <input type="text" id="message-input" autocomplete="off" placeholder="Type a message..." disabled />
+                <button type="submit" id="send-btn" class="icon-btn send-btn" aria-label="Send message" disabled>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
